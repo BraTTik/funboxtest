@@ -34,6 +34,7 @@ const Product = (props) => {
             <div>
                 <p><strong>{size.portions}</strong> порций</p>
                 <p><strong>{size.mice}</strong> {getCorrectMouse(size.mice)} в подарок</p>
+                {isDisabled&&<p>заказчик доволен</p>}
             </div>
 
             <Circle size={size.weight} backgroundColor={borderColor}/>
