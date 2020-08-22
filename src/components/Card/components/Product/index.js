@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Circle from './components/Circle';
+import DisableWindow from './components/DisableWindow';
 import './style.css';
 
 
@@ -37,6 +38,7 @@ const Product = (props) => {
 
             <Circle size={size.weight} backgroundColor={borderColor}/>
 
+            {isDisabled&&<DisableWindow />}
             <span className="card-product__border-fix" style={style}/>
         </div>
     )

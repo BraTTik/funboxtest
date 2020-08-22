@@ -3,8 +3,7 @@
     --border-color: #1698d9;
     box-sizing: border-box;
     width: 320px;
-    max-height: 480px;
-    height: 95vh;
+    height: 480px;
     background-color: #fff;
     clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
     border: var(--border-width) solid var(--border-color);
@@ -29,7 +28,7 @@
     top: 40px;
     left: -6px;
     transition: all .2s ease-in-out;
-
+    z-index: 1000;
 }
 
 .card-product h4,

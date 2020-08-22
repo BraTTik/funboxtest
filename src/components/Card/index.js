@@ -25,21 +25,26 @@ const Card = (props) => {
  
     useEffect(() => {
         isSelected ? setBorderColor(colors.hoverSelected) : setBorderColor(colors.hoverDefault)
+
+        //Определяем количество товара по размеру упаковки
         const {amounts} = props.flavour;
         const {size} = props.size;
         const founded = amounts.find( amount =>  amount.size === size);
 
         //Если на количество товара 0, тогда делаем не доступным
         founded.amount === 0 && setIsDisabled(true) 
-    }, [isSelected])
+        isDisabled&&setBorderColor(colors.disabled);
+    }, [isSelected, isDisabled])
 
 
     const handleMouseOver = () => {
+        if(isDisabled) return;
         isSelected ? setBorderColor(colors.hoverSelected) : setBorderColor(colors.hoverDefault);
         isConfirmed ? setSubtitle(confirmedSubtitle) : setSubtitle(defaultSubtitle);
     }
 
     const handleMouseLeave = () => {
+        if(isDisabled) return;
         if(isSelected){
             setBorderColor(colors.selected);
             setIsConfirmed(true);
@@ -51,6 +56,7 @@ const Card = (props) => {
     }
 
     const handleClick = () => {
+        if(isDisabled) return;
         if(isSelected){
             setIsSelected(false);
             setIsConfirmed(false);

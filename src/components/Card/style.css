@@ -1,6 +1,15 @@
 .card{
     font-family: 'Trebuchet MS', sans-serif;
     margin-bottom: 2rem;
-    margin-left: 2rem;
     cursor: pointer;
+}
+
+.card + .card{
+    margin-left: 2rem;
+}
+
+@media screen and (max-width: 670px){
+    .card + .card{
+        margin-left: 0;
+    }
 }
